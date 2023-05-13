@@ -31,4 +31,25 @@ public class Shop : MonoBehaviour
         buildManager.SetTurretToBuild(buildManager.CannonTurretPrefab);
 
     }
+    public void SelectDamageBuff()
+    {
+
+        Debug.Log("CannonTurret");
+        buildManager.SetTurretToBuild(buildManager.DamageBuffPrefab);
+
+    }
+    public void SelectRangeBuff()
+    {
+
+        Debug.Log("CannonTurret");
+        buildManager.SetTurretToBuild(buildManager.RangeBuffPrefab);
+
+    }
+    public void SelectFireRateBuff()
+    {
+
+        Debug.Log("CannonTurret");
+        buildManager.SetTurretToBuild(buildManager.FireRateBuffPrefab);
+
+    }
 }

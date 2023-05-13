@@ -14,6 +14,12 @@ public class Spot : MonoBehaviour
     //refs
     private Renderer rend;
     BuildManager buildManager;
+    // Lista di torrette nello stesso spot
+    private List<GameObject> turrets = new List<GameObject>();
+
+    public float turretHeight = 1.5f;
+
+    // Resto del codice invariato
 
     void Start()
     {
@@ -30,15 +36,12 @@ public class Spot : MonoBehaviour
         if (buildManager.GetTurretToBuild() == null)
             return;
 
-        if (turret != null)
-        {
-            Debug.Log("Can't build there! - TODO: Display on screen.");
-            return;
-        }
-
-        //build a turret
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+        Vector3 turretPosition = transform.position + Vector3.up * turretHeight * turrets.Count;
+        GameObject turret = (GameObject)Instantiate(turretToBuild, turretPosition, transform.rotation);
+
+        // aggiungi la nuova torretta alla lista delle torrette sullo stesso spot
+        turrets.Add(turret);
 
     }
 
