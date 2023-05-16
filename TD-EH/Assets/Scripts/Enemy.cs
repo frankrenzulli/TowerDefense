@@ -1,48 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public int Health, maxHealth = 100;
+    [SerializeField] Slider healthBar;
 
-    public Transform[] Waypoints;
-    int waypointsIndex = 0;
-    Vector3 target;
-    //public float speed = 5f; // Velocità dell'oggetto
-    //public Vector3 direction; // Direzione di movimento dell'oggetto
-
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<Slider>();
+    }
     private void Start()
     {
-        agent = GetComponentInChildren<NavMeshAgent>();
-        UpdateDestination();
+        Health = maxHealth;
+        healthBar.value = Health ;
     }
-    private void Update()
+    public void TakeDamage(int damage)
     {
-        if(Vector3.Distance(transform.position, target) < 0.25f)
+        Debug.Log("prendo danno");
+        Health -= damage;
+        healthBar.value = Health;
+        if (Health <= 0)
         {
-            Debug.Log("dio");
-            IterateWaypointsIndex();
-            UpdateDestination();
-            
+            Destroy(gameObject);
         }
-        
-        //direction = new Vector3(1, 0, 0);
-        // Muovi l'oggetto nella direzione specificata alla velocità specificata
-        //transform.position += direction * speed * Time.deltaTime;
-    }
-
-    void UpdateDestination()
-    {
-        target = Waypoints[waypointsIndex].position;
-        agent.SetDestination(target);
-    }
-
-    void IterateWaypointsIndex()
-    {
-        waypointsIndex++;
         
     }
 }
-

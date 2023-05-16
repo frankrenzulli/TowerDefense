@@ -12,7 +12,9 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
-
+    public int bulletDamage = 0;
+    public float originalRange, originalfireRate;
+    public int originalDamage;
     [Header("Turret Rotation")]
     public Transform RotationTurret;
     public float rotationSpeed;
@@ -23,7 +25,8 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-
+        originalfireRate = fireRate;
+        originalRange = range;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 
     }
@@ -85,13 +88,25 @@ public class Turret : MonoBehaviour
 
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         BulletScript bullet = bulletGO.GetComponent<BulletScript>();
-
+        bullet.damage += bulletDamage;
         if (bullet != null)
             bullet.LookForEnemy(Target);
 
     }
 
-
+    public void FirerateBuff(float buff)
+    {
+        fireRate += buff;
+    }
+    public void RangeBuff(float buff)
+    {
+        range += buff;
+    }
+    public int DamageBuff(int buff)
+    {
+        bulletDamage += buff;
+        return bulletDamage;
+    }
 
     private void OnDrawGizmosSelected()
     {

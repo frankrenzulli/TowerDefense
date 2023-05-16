@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 5517368948287757217}
   - component: {fileID: 2288070517651263608}
   - component: {fileID: 1764141831700055643}
+  - component: {fileID: 4206113323723654245}
   - component: {fileID: 3628326664876541891}
+  - component: {fileID: -3564936642863093733}
   m_Layer: 0
   m_Name: FireRateBuffBlock
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3717061458270503999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,6 +86,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4206113323723654245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717061458270503999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a6fbf963ce4d944a2861d84150df38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeBuff: 5
+  firerateBuff: 5
+  damageBuff: 20
+  isFirerateBuff: 1
+  isDamageBuff: 0
+  isRangeBuff: 0
 --- !u!65 &3628326664876541891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -97,3 +117,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3564936642863093733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717061458270503999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e2e654db62cb84db7cf30c94147fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 150

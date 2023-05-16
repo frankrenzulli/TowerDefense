@@ -13,43 +13,54 @@ public class Shop : MonoBehaviour
     }
     public void SelectStandardTurret()
     {
-
-        Debug.Log("StandardTurret");
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
-
+        if (GameManager.money >= 100)
+        {
+            Debug.Log("StandardTurret");
+            buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        }
     }
     public void SelectMachineGunTurret()
     {
-
-        Debug.Log("MachineGunTurret");
-        buildManager.SetTurretToBuild(buildManager. MachineGunTurretPrefab);
+        if (GameManager.money >= 150)
+        {
+            Debug.Log("MachineGunTurret");
+            buildManager.SetTurretToBuild(buildManager.MachineGunTurretPrefab);
+        }
     }
     public void SelectCannonTurret()
     {
-
-        Debug.Log("CannonTurret");
-        buildManager.SetTurretToBuild(buildManager.CannonTurretPrefab);
+        if (GameManager.money >= 250)
+        {
+            Debug.Log("CannonTurret");
+            buildManager.SetTurretToBuild(buildManager.CannonTurretPrefab);
+        }
 
     }
     public void SelectDamageBuff()
     {
-
-        Debug.Log("CannonTurret");
-        buildManager.SetTurretToBuild(buildManager.DamageBuffPrefab);
+        if (GameManager.money >= 150)
+        {
+            Debug.Log("CannonTurret");
+            buildManager.SetTurretToBuild(buildManager.DamageBuffPrefab);
+        }
 
     }
     public void SelectRangeBuff()
     {
-
-        Debug.Log("CannonTurret");
-        buildManager.SetTurretToBuild(buildManager.RangeBuffPrefab);
+        if (GameManager.money >= 150)
+        {
+            Debug.Log("CannonTurret");
+            buildManager.SetTurretToBuild(buildManager.RangeBuffPrefab);
+        }
 
     }
     public void SelectFireRateBuff()
     {
-
-        Debug.Log("CannonTurret");
-        buildManager.SetTurretToBuild(buildManager.FireRateBuffPrefab);
+        if (GameManager.money >= 150)
+        {
+            Debug.Log("CannonTurret");
+            buildManager.SetTurretToBuild(buildManager.FireRateBuffPrefab);
+        }
 
     }
 }
